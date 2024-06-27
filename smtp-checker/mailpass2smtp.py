@@ -240,11 +240,11 @@ def find_email_password_collumnes(list_filename):
 		return (email_collumn, password_collumn)
 	raise Exception('the file you provided does not contain emails')
 
-def wc_count(filename, lines=0):
-	file_handle = open(filename, 'rb')
-	while buf:=file_handle.raw.read(1024*1024):
-		lines += buf.count(b'\n')
-	return lines+1
+def count_lines_in_file(file_handle):
+    lines = 0
+    while buf := file_handle.raw.read(1024*1024):
+        lines += buf.count(b'\n')
+    return lines + 1
 
 def is_ignored_host(mail):
 	global exclude_mail_hosts
